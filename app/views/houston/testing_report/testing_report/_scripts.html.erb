@@ -1,13 +1,17 @@
-<% content_for :javascripts do %>
-  <script type="text/javascript">
-    $(function() {
-      window.testers = new Testers(<%= raw TesterPresenter.new(User.testers.unretired).to_json %>);
-      var tickets = new Houston.TestingReport.Tickets(<%= raw tickets.to_json %>);
-      new Houston.TestingReport.TestingReportView({
-        el: '#testing_report',
-        projectsCanCloseTicketsFor: <%= raw @projects.select { |project| can?(:close, project.tickets.build) }.map(&:id).to_json %>,
-        tickets: tickets
+<% if tickets.any? %>
+  <% content_for :javascripts do %>
+    <script type="text/javascript">
+      $(function() {
+        window.testers = new Testers(<%= raw TesterPresenter.new(User.testers.unretired).to_json %>);
+        var tickets = new Houston.TestingReport.Tickets(<%= raw Houston::TestingReport::TicketPresenter.new(@tickets).to_json %>);
+        var openTickets = <%= raw TicketPresenter.new(@tickets.open).to_json %>;
+        new Houston.TestingReport.TestingReportView({
+          el: '#testing_report',
+          projectsCanCloseTicketsFor: <%= raw @projects.select { |project| can?(:close, project.tickets.build) }.map(&:id).to_json %>,
+          tickets: tickets,
+          openTickets: openTickets
+        });
       });
-    });
-  </script>
+    </script>
+  <% end %>
 <% end %>

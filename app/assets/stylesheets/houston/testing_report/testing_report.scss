@@ -277,3 +277,45 @@ tbody .ticket-testingPriority {
     &.fa-arrow-up { color: rgba(231, 76, 35, 0.6); }
   }
 }
+
+.testing-report-add-ticket {
+  display: flex;
+  margin-top: 40px;
+
+  label {
+    margin: 0;
+    line-height: 36px;
+    vertical-align: middle;
+    padding-right: 1em;
+  }
+
+  input {
+    flex-grow: 100;
+    margin: 0;
+    height: 26px;
+    padding: 4px 12px;
+    border-color: #e4e4e4;
+  }
+
+  .testing-report-add-ticket-message {
+    padding: 0.25em 0 0.25em 1em;
+    text-align: right;
+  }
+
+  .testing-report-adding-ticket {
+    border-radius: 4px;
+    background: #5DB64C;
+    color: white;
+    text-align: center;
+    padding: 4px 8px;
+    font-size: 13px;
+    line-height: 18px;
+    display: inline-block;
+    vertical-align: middle;
+    visibility: hidden;
+  }
+
+  &.working .testing-report-adding-ticket {
+    visibility: visible;
+  }
+}

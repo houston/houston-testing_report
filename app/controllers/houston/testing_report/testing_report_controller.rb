@@ -22,6 +22,13 @@ module Houston
       end
 
 
+      def add_ticket
+        @ticket = Ticket.find params[:ticket_id]
+        @ticket.resolve!
+        render json: Houston::TestingReport::TicketPresenter.new(Ticket.where(id: @ticket.id)).as_json[0]
+      end
+
+
     private
 
 
@@ -31,8 +38,7 @@ module Houston
 
 
       def default_render
-        @tickets = Houston::TestingReport::TicketPresenter.new(@tickets).as_json
-        render json: @tickts if request.xhr?
+        render json: Houston::TestingReport::TicketPresenter.new(@tickets) if request.xhr?
         super
       end
 

@@ -22,8 +22,23 @@
       <tbody id="testing_report"><tbody>
     </table>
   </div>
-
-  <%= render partial: "houston/testing_report/testing_report/scripts", locals: {tickets: @tickets} %>
 <% else %>
   <div class="alert alert-info">There are no tickets in testing for <b><%= @project.name %></b> right now.</div>
 <% end %>
+
+<% if can?(:close, @project.tickets.build) %>
+  <hr>
+
+  <div class="testing-report-add-ticket">
+    <label for="add_ticket" class="control-label">Add ticket</label>
+    <input type="text" placeholder="Enter a ticket number or summary; then press Enter" id="add_ticket" />
+    <div class="testing-report-add-ticket-message">
+      <div class="testing-report-adding-ticket">
+        <i class="fa fa-spinner fa-spin fa-large"></i>
+        Adding
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<%= render partial: "houston/testing_report/testing_report/scripts", locals: {tickets: @tickets} %>
