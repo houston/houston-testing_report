@@ -1,4 +1,5 @@
 module Houston::TestingReport
-  class ApplicationController < ActionController::Base
+  class ApplicationController < ::ApplicationController
+    layout "houston/testing_report/application"
   end
 end

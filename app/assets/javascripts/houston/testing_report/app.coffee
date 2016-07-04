@@ -1,0 +1,1 @@
+Houston.TestingReport = Houston.TestingReport || {};
