@@ -3,9 +3,9 @@ class TestingNote < ActiveRecord::Base
   before_create  :create_ticket_comment!
   before_update  :update_ticket_comment!
   before_destroy :destroy_ticket_comment!
-  after_create { Houston.observer.fire "testing_note:create", self }
-  after_update { Houston.observer.fire "testing_note:update", self }
-  after_save   { Houston.observer.fire "testing_note:save", self }
+  after_create { Houston.observer.fire "testing_note:create", testing_note: self }
+  after_update { Houston.observer.fire "testing_note:update", testing_note: self }
+  after_save   { Houston.observer.fire "testing_note:save", testing_note: self }
 
   belongs_to :user
   belongs_to :ticket
