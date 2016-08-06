@@ -1,6 +1,6 @@
 module Houston
   module TestingReport
-    class TestingReportController < ApplicationController
+    class TestingReportController < Houston::TestingReport::ApplicationController
       before_filter :authenticate_user!
       before_filter :find_project, only: [:show]
 
