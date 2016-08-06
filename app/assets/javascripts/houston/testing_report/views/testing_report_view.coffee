@@ -4,7 +4,7 @@ class Houston.TestingReport.TestingReportView extends Backbone.View
     @tickets = @options.tickets
     @projectsCanCloseTicketsFor = @options.projectsCanCloseTicketsFor
     @tickets.bind 'reset', _.bind(@render, @)
-    @expander = new TableRowExpander()
+    @expander = new Houston.TestingReport.TableRowExpander()
 
     # Prevent tablesorter from exhuming buried rows
     @tickets.bind 'destroy', (ticket)=>
