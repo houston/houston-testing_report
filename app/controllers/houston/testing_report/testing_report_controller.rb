@@ -10,6 +10,7 @@ module Houston
 
         @projects = followed_projects.select { |project| can?(:read, TestingNote.new(project: @project)) }
         @tickets = Ticket.for_projects @projects
+        @testers = TeamUser.where(team_id: @projects.map(&:team_id).compact.uniq).with_role("Tester").to_users.unretired
       end
 
 
@@ -19,6 +20,7 @@ module Houston
 
         @projects = [@project]
         @tickets = @project.tickets
+        @testers = @project.team ? @project.team.roles.with_role("Tester").to_users.unretired : []
       end
 
 

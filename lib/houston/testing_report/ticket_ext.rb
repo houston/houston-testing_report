@@ -23,6 +23,10 @@ module Houston
         end                                  #
       end
 
+      def testers
+        @testers ||= (project.team ? project.team.roles.with_role("Tester").to_users.unretired : [])
+      end
+
     end
   end
 end
