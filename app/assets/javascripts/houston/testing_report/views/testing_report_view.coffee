@@ -1,6 +1,7 @@
 class Houston.TestingReport.TestingReportView extends Backbone.View
 
-  initialize: ->
+  initialize: (options)->
+    @options = options
     @tickets = @options.tickets
     @projectsCanCloseTicketsFor = @options.projectsCanCloseTicketsFor
     @tickets.bind 'reset', _.bind(@render, @)

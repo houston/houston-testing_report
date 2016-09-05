@@ -7,7 +7,8 @@ class Houston.TestingReport.TestingTicketView extends Backbone.View
     'click .reopen-button': 'reopenTicket'
     'click a.ticket-set-priority': 'setPriority'
 
-  initialize: ->
+  initialize: (options)->
+    @options = options
     @ticket = @options.ticket
     @canClose = @options.canClose
     @testingNotes = @ticket.testingNotes()

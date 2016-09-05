@@ -8,7 +8,8 @@ class Houston.TestingReport.TestingNoteView extends Backbone.View
     'click .btn-cancel': 'cancel'
     'click :radio': 'changeVerdict'
 
-  initialize: ->
+  initialize: (options)->
+    @options = options
     @isInEditMode = false
     @renderTestingNote = HandlebarsTemplates['houston/testing_report/testing_notes/show']
     @renderEditTestingNote = HandlebarsTemplates['houston/testing_report/testing_notes/edit']
