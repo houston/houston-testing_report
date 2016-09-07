@@ -19,7 +19,7 @@ class Houston.TestingReport.TestingNoteView extends Backbone.View
     $el = $(@el)
     $el.attr('id', "testing_note_#{@model.get('id')}")
     renderer = if @isInEditMode then @renderEditTestingNote else @renderTestingNote
-    $el.html renderer(_.extend(@model.toJSON(), {editable: @isEditable(), tester: (window.user.get('role') == 'Tester')}))
+    $el.html renderer(_.extend(@model.toJSON(), {editable: @isEditable(), tester: userIsTester}))
     $el.attr('class', "testing-note #{@model.get('verdict')}")
     $el.addClass('by-tester') if @model.get('byTester')
     @

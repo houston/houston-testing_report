@@ -3,6 +3,7 @@
     <script type="text/javascript">
       $(function() {
         window.testers = new Testers(<%= raw Houston::TestingReport::TesterPresenter.new(@testers).to_json %>);
+        window.userIsTester = <%= @testers.member?(current_user) %>;
         var tickets = new Houston.TestingReport.Tickets(<%= raw Houston::TestingReport::TicketPresenter.new(@tickets).to_json %>);
         var openTickets = <%= raw TicketPresenter.new(@tickets.open).to_json %>;
         new Houston.TestingReport.TestingReportView({

@@ -8,7 +8,7 @@ module Houston
       def index
         @title = "Testing Report"
 
-        @projects = followed_projects.select { |project| can?(:read, TestingNote.new(project: @project)) }
+        @projects = followed_projects.select { |project| can?(:read, TestingNote.new(project: project)) }
         @tickets = Ticket.for_projects @projects
         @testers = TeamUser.where(team_id: @projects.map(&:team_id).compact.uniq).with_role("Tester").to_users.unretired
       end

@@ -65,8 +65,8 @@ class Houston.TestingReport.TestingTicketView extends Backbone.View
       params =
         projectSlug: @ticket.get('projectSlug')
         ticketId: @ticket.get('id')
-        tester: window.user.get('role') == 'Tester'
-        developer: window.user.get('role') == 'Developer'
+        tester: userIsTester
+        developer: !userIsTester # <-- maybe not strictly true
       $testingNotes.append @renderNewTestingNote(params)
 
       $tr.find('form#new_testing_note').submit _.bind(@createTestingNote, @)
