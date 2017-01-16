@@ -1,6 +1,10 @@
 
 .nomargin { margin: 0 -20px; }
 
+.committer-avatar img {
+  border: 2px solid #555;
+}
+
 #testing_report {
   .avatar { border-radius: 0; }
 }

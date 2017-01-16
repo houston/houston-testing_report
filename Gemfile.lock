@@ -1,6 +1,16 @@
 GIT
+  remote: git://github.com/houston/houston-commits.git
+  revision: 243728620b17bf817da7def69765d62aa7fa85cb
+  branch: master
+  specs:
+    houston-commits (0.0.1)
+      houston-core (>= 0.8.0.pre)
+      octokit (~> 4.4.1)
+      rugged (~> 0.24.0)
+
+GIT
   remote: git://github.com/houston/houston-core.git
-  revision: d93dcf6762bf93ccd60070d135c6f9dc64755836
+  revision: c4a5d48b6f82f8a6e297f3a5cca20a12ea5b871a
   branch: master
   specs:
     houston-core (0.8.0.pre)
@@ -9,7 +19,6 @@ GIT
       addressable (~> 2.3.8)
       attentive (>= 0.3.6)
       browser (~> 2.3.0)
-      bundler
       cancan (~> 1.6.10)
       coffee-rails (~> 4.1.0)
       concurrent-ruby (~> 1.0.2)
@@ -26,7 +35,6 @@ GIT
       nested_editor_for
       nokogiri
       oauth2
-      octokit (~> 4.4.1)
       oj (~> 2.18)
       openxml-xlsx (>= 0.2.0)
       pg (~> 0.19.0)
@@ -37,7 +45,6 @@ GIT
       rails (~> 5.0.0)
       redcarpet (~> 3.3.2)
       rufus-scheduler (~> 3.2.0)
-      rugged (~> 0.24.0)
       sass-rails (~> 5.0)
       strongbox (~> 0.7.2)
       thor
@@ -45,7 +52,7 @@ GIT
 
 GIT
   remote: git://github.com/houston/houston-tickets.git
-  revision: 4dc6fefc3ced1191991b5670d502fa97274cf2ff
+  revision: daa10054293b892cda85bca8d0f20f3d8450ad85
   branch: master
   specs:
     houston-tickets (0.0.1)
@@ -303,6 +310,7 @@ PLATFORMS
 DEPENDENCIES
   bundler (~> 1.11.2)
   capybara
+  houston-commits!
   houston-core!
   houston-testing_report!
   houston-tickets!

@@ -40,7 +40,7 @@ module Houston
           dueDate: ticket.due_date,
           minPassingVerdicts: ticket.project.props["testingReport.minPassingVerdicts"],
           testingNotes: Houston::TestingReport::TestingNotePresenter.new(ticket.testing_notes).as_json,
-          commits: CommitPresenter.new(@released_commits_by_ticket.fetch(ticket.id, [])).as_json,
+          commits: Houston::TestingReport::CommitPresenter.new(@released_commits_by_ticket.fetch(ticket.id, [])).as_json,
           releases: ReleasePresenter.new(ticket.releases).as_json,
           lastReleaseAt: ticket.last_release_at)
       end

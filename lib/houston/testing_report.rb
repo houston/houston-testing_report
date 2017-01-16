@@ -6,7 +6,7 @@ module Houston
     extend self
 
     def dependencies
-      [:tickets]
+      [ :commits, :tickets ]
     end
 
     def config(&block)
