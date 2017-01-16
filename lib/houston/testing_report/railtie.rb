@@ -1,3 +1,4 @@
+require "houston/tickets"
 require "houston/testing_report/ticket_ext"
 
 module Houston

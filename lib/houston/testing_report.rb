@@ -5,6 +5,10 @@ module Houston
   module TestingReport
     extend self
 
+    def dependencies
+      [:tickets]
+    end
+
     def config(&block)
       @configuration ||= TestingReport::Configuration.new
       @configuration.instance_eval(&block) if block_given?

@@ -2,6 +2,8 @@ module Houston
   module TestingReport
     class Mailer < ViewMailer
 
+      helper TicketHelper
+
       def testing_note(testing_note, recipients)
         @note = testing_note
         @tester = testing_note.user

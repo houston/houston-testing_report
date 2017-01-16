@@ -1,6 +1,6 @@
 module Houston
   module TestingReport
-    class TicketPresenter < ::TicketPresenter
+    class TicketPresenter < Houston::Tickets::TicketPresenter
       include MarkdownHelper
 
       def initialize(tickets)
