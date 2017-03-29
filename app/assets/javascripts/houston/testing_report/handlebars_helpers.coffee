@@ -9,3 +9,9 @@ Handlebars.registerHelper 'linkToCommit', (commit)->
     "<a href=\"#{commit.linkTo}\" target=\"_blank\">#{sha}</a>"
   else
     sha
+
+Handlebars.registerHelper 'radioButton', (object, id, name, value, selectedValue)->
+  id = "#{object}_#{id}_#{name}_#{value}"
+  input = "<input type=\"radio\" id=\"#{id}\" name=\"#{name}\" value=\"#{value}\""
+  input = input + ' checked="checked"' if value == selectedValue
+  "#{input} />"
