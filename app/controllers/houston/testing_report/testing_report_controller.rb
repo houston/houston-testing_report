@@ -1,8 +1,8 @@
 module Houston
   module TestingReport
     class TestingReportController < Houston::TestingReport::ApplicationController
-      before_filter :authenticate_user!
-      before_filter :find_project, only: [:show]
+      before_action :authenticate_user!
+      before_action :find_project, only: [:show]
 
 
       def index
